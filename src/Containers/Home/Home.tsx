@@ -16,13 +16,14 @@ const Home: React.FC = () => (
 					<Flex flexDir="column">
 						<Text
 							fontFamily="Poppins"
-							fontSize="3xl"
+							fontSize="5xl"
 							fontWeight="semibold"
-							color="purple.500"
+							color="purple.700"
+							textShadow="3px 4px var(--chakra-colors-pink-300)"
 						>
 							Classificando estrelas e Galaxias
 						</Text>
-						<Text fontFamily="Poppins" fontSize="xl">
+						<Text color="pink.400" fontFamily="Poppins" fontSize="xl">
 							Trabalho inter disciplinar VI
 						</Text>
 					</Flex>
