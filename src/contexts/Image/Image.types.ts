@@ -5,5 +5,6 @@ export type TPerson = {
 }
 
 export interface IImageContext {
+	handleGetAllData: () => Promise<void>
 	handleInsertData: (data: TPerson) => Promise<void>
 }

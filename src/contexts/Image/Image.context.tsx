@@ -1,5 +1,5 @@
 import React, { createContext, useCallback, useContext } from 'react'
-import { insertData } from 'services/python.api'
+import { getData, insertData } from 'services/python.api'
 import { IImageContext, TPerson } from './Image.types'
 
 export const ImageContext = createContext<IImageContext>({} as IImageContext)
@@ -10,6 +10,13 @@ interface AppProps {
 }
 
 const ImageProvider: React.FC<AppProps> = ({ children }: AppProps) => {
+	const handleGetAllData = useCallback(async () => {
+		const { response, status } = await getData()
+
+		console.log(response)
+		console.log(status)
+	}, [])
+
 	const handleInsertData = useCallback(async (data: TPerson) => {
 		await insertData(data)
 	}, [])
@@ -17,6 +24,7 @@ const ImageProvider: React.FC<AppProps> = ({ children }: AppProps) => {
 	return (
 		<ImageContext.Provider
 			value={{
+				handleGetAllData,
 				handleInsertData
 			}}
 		>
