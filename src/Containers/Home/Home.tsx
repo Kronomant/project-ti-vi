@@ -1,19 +1,11 @@
-import { Flex, Grid, Text, Image, Button } from '@chakra-ui/react'
+import { Flex, Grid, Text, Image } from '@chakra-ui/react'
 import Header from 'Components/Core/Header'
-import { useImageProcessing } from 'contexts/Image'
+
 import React from 'react'
 
 import { FiGithub } from 'react-icons/fi'
 
 const Home: React.FC = () => {
-	const { handleInsertData, handleGetAllData } = useImageProcessing()
-
-	const persona = {
-		id: 1,
-		name: 'lusca',
-		endereco: 'nao sei'
-	}
-
 	return (
 		<Flex flexDir="column" width="100%">
 			<Header />
@@ -37,9 +29,6 @@ const Home: React.FC = () => {
 								Trabalho inter disciplinar VI
 							</Text>
 						</Flex>
-						<Button colorScheme="blue" onClick={() => handleGetAllData()}>
-							Enviar
-						</Button>
 
 						<Text fontFamily="Poppins">
 							Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum
