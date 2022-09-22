@@ -1,7 +1,8 @@
 import React from 'react'
 import type { AppProps } from 'next/app'
 import { ImageProvider } from 'contexts/Image'
-import { ChakraProvider, theme } from '@chakra-ui/react'
+import { ChakraProvider } from '@chakra-ui/react'
+import theme from 'styles'
 import Head from 'next/head'
 
 function MyApp({ Component, pageProps }: AppProps) {

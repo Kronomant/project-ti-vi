@@ -25,8 +25,8 @@ const Classificator = () => {
 			<Image h="250px" src="/images/nebula.png" objectFit="cover" />
 			<Flex
 				w="100%"
-				minH={'70vh'}
-				margin={'32px auto'}
+				minH="70vh"
+				margin="32px auto"
 				maxW="1400px"
 				flexDir="column"
 				justifyContent="center"
