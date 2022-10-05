@@ -21,21 +21,23 @@ const InputImage: React.FC<IInputImageProps> = ({
 	const [loadingImage, setLoadingImage] = useState<boolean>(false)
 	const refImage = useRef<HTMLInputElement>(null)
 	const form = new FormData()
+	const teste = true
 	const { handleInsertData } = useImageProcessing()
 
 	const handleInputImage = async (file: File) => {
 		setLoadingImage(true)
-		await sleep(1000)
-		form.append('files', file)
+		// await sleep(1000)
+		form.append('imgFile', file)
 		const objectUrl = URL.createObjectURL(file)
 		setPreview(objectUrl)
 		console.log(form)
+
 		// api para enviar imagem
 		setLoadingImage(false)
 	}
 
 	const handleInsertImage = useCallback(async () => {
-		// await insertData(form)
+		await handleInsertData(form)
 		form.append('files', null)
 		console.log(form)
 		setNextStep(true)
@@ -82,38 +84,52 @@ const InputImage: React.FC<IInputImageProps> = ({
 	)
 
 	return (
-		<Flex flexDir="column" alignItems="end">
-			<ImageCover>
-				<ImageContainer onClick={handleClickIcon}>
-					{loadingImage && <Loading />}
-					<Icon as={IoMdImage} height={5} width={5} color="pink.500" />
-					<input
-						type="file"
-						hidden
-						ref={refImage}
-						accept="image/jpg, image/jpeg, image/png"
-						onChange={({ target }) => {
-							if (target?.files?.[0]) {
-								handleInputImage(target.files?.[0])
-							}
-						}}
-					/>
-					<Image src={preview} />
-				</ImageContainer>
-			</ImageCover>
-			{preview && (
-				<Button
-					_hover={{ background: '#194077', color: 'pink.300' }}
-					w="100px"
-					rightIcon={<Icon as={AiOutlineSend} color="pink.400" />}
-					bgColor="#0C1E39"
-					color="pink.400"
-					onClick={() => handleInsertImage()}
+		<>
+			{teste ? (
+				<Flex flexDir="column" alignItems="end">
+					<ImageCover>
+						<ImageContainer onClick={handleClickIcon}>
+							{loadingImage && <Loading />}
+							<Icon as={IoMdImage} height={5} width={5} color="pink.500" />
+							<input
+								type="file"
+								formEncType="multipart/form-data"
+								hidden
+								ref={refImage}
+								accept="image/jpg, image/jpeg, image/png"
+								onChange={({ target }) => {
+									if (target?.files?.[0]) {
+										handleInputImage(target.files?.[0])
+									}
+								}}
+							/>
+							<Image src={preview} />
+						</ImageContainer>
+					</ImageCover>
+					{preview && (
+						<Button
+							_hover={{ background: '#194077', color: 'pink.300' }}
+							w="100px"
+							rightIcon={<Icon as={AiOutlineSend} color="pink.400" />}
+							bgColor="#0C1E39"
+							color="pink.400"
+							onClick={() => handleInsertImage()}
+						>
+							Enviar
+						</Button>
+					)}
+				</Flex>
+			) : (
+				<form
+					method="POST"
+					action="/api/pessoa/upload-image"
+					encType="multipart/form-data"
 				>
-					Enviar
-				</Button>
+					<input type="file" name="imgFile" />
+					<input type="submit" value="upload" />
+				</form>
 			)}
-		</Flex>
+		</>
 	)
 }
 
