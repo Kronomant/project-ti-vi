@@ -1,13 +1,13 @@
 import { TPerson } from 'contexts/Image/Image.types'
 import API from './api'
-
+import FormData from 'form-data'
 export const insertData = async (
-	data: TPerson
+	data: FormData
 ): Promise<{
 	status: number
 	response: TPerson[]
 }> => {
-	const resp = await API.post('api/pessoa/', data)
+	const resp = await API.post('api/pessoa/upload-image', data)
 		.then(({ data, status }) => {
 			return { status, response: data?.data }
 		})

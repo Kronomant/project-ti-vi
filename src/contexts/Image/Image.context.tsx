@@ -1,7 +1,7 @@
 import React, { createContext, useCallback, useContext } from 'react'
 import { getData, insertData } from 'services/python.api'
 import { IImageContext, TPerson } from './Image.types'
-
+import FormData from 'form-data'
 export const ImageContext = createContext<IImageContext>({} as IImageContext)
 export const useImageProcessing = (): IImageContext => useContext(ImageContext)
 
@@ -17,7 +17,7 @@ const ImageProvider: React.FC<AppProps> = ({ children }: AppProps) => {
 		console.log(status)
 	}, [])
 
-	const handleInsertData = useCallback(async (data: TPerson) => {
+	const handleInsertData = useCallback(async (data: FormData) => {
 		await insertData(data)
 	}, [])
 

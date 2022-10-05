@@ -21,22 +21,23 @@ const InputImage: React.FC<IInputImageProps> = ({
 	const [loadingImage, setLoadingImage] = useState<boolean>(false)
 	const refImage = useRef<HTMLInputElement>(null)
 	const form = new FormData()
-	const teste = false
+	const teste = true
 	const { handleInsertData } = useImageProcessing()
 
 	const handleInputImage = async (file: File) => {
 		setLoadingImage(true)
-		await sleep(1000)
-		form.append('files', file)
+		// await sleep(1000)
+		form.append('imgFile', file)
 		const objectUrl = URL.createObjectURL(file)
 		setPreview(objectUrl)
 		console.log(form)
+
 		// api para enviar imagem
 		setLoadingImage(false)
 	}
 
 	const handleInsertImage = useCallback(async () => {
-		// await insertData(form)
+		await handleInsertData(form)
 		form.append('files', null)
 		console.log(form)
 		setNextStep(true)
