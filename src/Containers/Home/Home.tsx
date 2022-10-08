@@ -2,7 +2,7 @@ import React from 'react'
 import { useRouter } from 'next/router'
 import { AiOutlineSend, AiOutlineArrowDown } from 'react-icons/ai'
 import { BiMouse } from 'react-icons/bi'
-import { Flex, Text, Image, Button, Icon, HStack } from '@chakra-ui/react'
+import { Flex, Text, Image, Button, Icon, HStack, Link } from '@chakra-ui/react'
 import Container from 'Components/Core/Container'
 import DevCard from 'Components/Presentation/Home/DevCard'
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -14,6 +14,7 @@ import 'swiper/css/pagination'
 
 import { Navigation, Pagination } from 'swiper'
 import ReferencesCard from 'Components/Presentation/Home/ReferencesCard'
+import { referencesData } from 'contexts/Image/Image.data'
 
 const Home: React.FC = () => {
 	const router = useRouter()
@@ -38,20 +39,21 @@ const Home: React.FC = () => {
 						fontSize="2xl"
 						fontWeight="semibold"
 					>
-						Trabalho inter disciplinar VI
+						Trabalho interdisciplinar VI
 					</Text>
 				</Flex>
 
 				<Text
 					fontFamily="Poppins"
-					fontSize="xl"
+					fontSize="lg"
 					color="gray.500"
 					fontWeight="light"
 				>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum labore,
-					fugiat maiores doloribus enim dicta. Labore animi nesciunt sequi iste
-					reiciendis quisquam voluptate laudantium consequuntur, ut laborum
-					magni beatae ab.
+					Esse trabalho tem como objetivo desenvolver uma solução eficiente para
+					classificar imagens de uma base de dados e identificá-las como
+					estrelas ou galáxias aplicando os conhecimentos das disciplinas de
+					computação distribuída, processamento e análise de imagens e
+					computação paralela
 				</Text>
 				<Button
 					_hover={{ background: '#194077', color: 'pink.300' }}
@@ -70,7 +72,15 @@ const Home: React.FC = () => {
 				>
 					Start
 				</Button>
-				<Flex as="a" href="#Devs" alignItems="center" gap={2} cursor="pointer">
+				<Flex
+					alignItems="center"
+					gap={2}
+					cursor="pointer"
+					onClick={() => {
+						const elementToview = document.getElementById('Devs')
+						elementToview.scrollIntoView({ behavior: 'smooth', block: 'start' })
+					}}
+				>
 					<Icon
 						justifySelf="left"
 						as={BiMouse}
@@ -99,7 +109,8 @@ const Home: React.FC = () => {
 	const Devs: React.FC = () => (
 		<Flex
 			id="Devs"
-			margin=" 0 0px 60px"
+			scrollMargin="60px"
+			margin=" 0px 0px 60px"
 			flexDir="column"
 			gap={8}
 			alignItems="center"
@@ -110,6 +121,7 @@ const Home: React.FC = () => {
 					fontSize="4xl"
 					fontWeight="semibold"
 					color="#0C1E39"
+					mb={4}
 					// textShadow="3px 4px var(--chakra-colors-pink-300)"
 				>
 					Devs
@@ -147,12 +159,18 @@ const Home: React.FC = () => {
 	)
 
 	const DataSet: React.FC = () => (
-		<Flex flexDir="column" alignItems="center">
+		<Flex
+			id="Dataset"
+			scrollMargin="160px"
+			flexDir="column"
+			alignItems="center"
+		>
 			<Text
 				fontFamily="Poppins"
 				fontSize="4xl"
 				fontWeight="semibold"
 				color="#0C1E39"
+				mb={4}
 				// textShadow="3px 4px var(--chakra-colors-pink-300)"
 			>
 				Data Set
@@ -160,7 +178,7 @@ const Home: React.FC = () => {
 			<Text
 				color="pink.400"
 				fontFamily="Poppins"
-				fontSize="lg"
+				fontSize="xl"
 				fontWeight="hairline"
 			>
 				base de dados
@@ -188,37 +206,66 @@ const Home: React.FC = () => {
 							<Image
 								h="128px"
 								w="128x"
-								key={`galaxy${i}`}
-								src={`/images/galaxy/galaxy${i}.jpg`}
+								key={`star${i}`}
+								src={`/images/star/star${i}.jpg`}
 							/>
 						))}
 					</HStack>
 				</Flex>
 				<Flex flexDir="column" w="40%">
-					<Text fontFamily="Poppins" fontSize="xl" color="gray.500">
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum
-						labore, fugiat maiores doloribus enim dicta. Labore animi nesciunt
-						sequi iste reiciendis quisquam voluptate laudantium consequuntur, ut
-						laborum magni beatae ab.
+					<Text fontFamily="Poppins" fontSize="lg" color="gray.500">
+						Iremos utilizar duas bases de dados para a execução desse trabalho.
+						Ambas as bases possuem imagens com tonalidades de cinza e estão
+						classificadas em pastas, uma pasta com imagens de galáxias e outra
+						com imagens de estrelas
 					</Text>
-					<Text fontFamily="Poppins" fontSize="xl" color="gray.500">
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum
-						labore, fugiat maiores doloribus enim dicta. Labore animi nesciunt
-						sequi iste reiciendis quisquam voluptate laudantium consequuntur, ut
-						laborum magni beatae ab.
+					<Text mt={4} fontFamily="Poppins" fontSize="lg" color="gray.500">
+						Essas bases de dados podem ser acessadas por meio dos links abaixo:
 					</Text>
+					<Link
+						_hover={{ color: 'var(--chakra-colors-pink-400)' }}
+						mt={4}
+						href="https://www.kaggle.com/datasets/brsdincer/mapping-dark-matter-image-set"
+						fontFamily="Poppins"
+						textDecor="underline"
+						target="_blank"
+						fontSize="lg"
+						color="gray.500"
+					>
+						Mapping Dark Matter Image Set
+					</Link>
+					<Link
+						_hover={{ color: 'var(--chakra-colors-pink-400)' }}
+						mt={4}
+						href="https://www.kaggle.com/datasets/divyansh22/dummy-astronomy-data"
+						fontFamily="Poppins"
+						target="_blank"
+						textDecor="underline"
+						fontSize="lg"
+						color="gray.500"
+					>
+						Star-Galaxy Classification Data
+					</Link>
 				</Flex>
 			</Flex>
 		</Flex>
 	)
 
 	const References: React.FC = () => (
-		<Flex flexDir="column" alignItems="center" w={'80%'}>
+		<Flex
+			id="References"
+			scrollMargin="160px"
+			flexDir="column"
+			alignItems="center"
+			w={'80%'}
+			mb={24}
+		>
 			<Text
 				fontFamily="Poppins"
 				fontSize="4xl"
 				fontWeight="semibold"
 				color="#0C1E39"
+				mb={4}
 				// textShadow="3px 4px var(--chakra-colors-pink-300)"
 			>
 				Trabalhos relacionados
@@ -226,8 +273,9 @@ const Home: React.FC = () => {
 			<Text
 				color="pink.400"
 				fontFamily="Poppins"
-				fontSize="lg"
+				fontSize="xl"
 				fontWeight="hairline"
+				mb={16}
 			>
 				Referências
 			</Text>
@@ -236,18 +284,15 @@ const Home: React.FC = () => {
 				modules={[Navigation, Pagination]}
 				className="mySwiper"
 			>
-				<SwiperSlide>
-					<ReferencesCard
-						title="Um Estudo Sobre Identificação de Aglomerados de Galáxias"
-						link="http://mtc-m16c.sid.inpe.br/col/sid.inpe.br/mtc-m18@80/2010/07.21.13.53/doc/Renata_Rocha.pdf"
-					/>
-				</SwiperSlide>
-				<SwiperSlide>
-					<ReferencesCard
-						title="Classificação de Objetos Astronômicos em Estrelas e Galáxias Usando o Algoritmo J4.8"
-						link="http://mtc-m16c.sid.inpe.br/col/sid.inpe.br/mtc-m18@80/2010/07.21.13.53/doc/Renata_Rocha.pdf"
-					/>
-				</SwiperSlide>
+				{referencesData.map(item => (
+					<SwiperSlide key={item.name}>
+						<ReferencesCard
+							title={item.name}
+							link={item.link}
+							description={item.description}
+						/>
+					</SwiperSlide>
+				))}
 			</Swiper>
 		</Flex>
 	)
@@ -255,6 +300,8 @@ const Home: React.FC = () => {
 	return (
 		<Container>
 			<Flex
+				id="Home"
+				scrollMargin="160px"
 				w="100%"
 				margin="32px auto"
 				maxW="1400px"
@@ -264,6 +311,7 @@ const Home: React.FC = () => {
 				gap={24}
 			>
 				<Banner />
+
 				<Devs />
 				<DataSet />
 				<References />

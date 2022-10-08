@@ -11,7 +11,6 @@
     "start": "next start",
     "lint": "next lint"
   },
-  
   "dependencies": {
     "@chakra-ui/icons": "^2.0.9",
     "@chakra-ui/react": "^2.2.1",
@@ -24,6 +23,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "^4.4.0",
+    "react-toastify": "^9.0.8",
     "styled-components": "^5.3.5",
     "swiper": "^8.3.2"
   },

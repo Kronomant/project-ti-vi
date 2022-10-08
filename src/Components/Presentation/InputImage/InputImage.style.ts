@@ -26,7 +26,7 @@ export const ImageCover = styled.div`
 	border: 2px dashed #d53f8c;
 
 	img {
-		object-fit: cover;
+		object-fit: contain;
 		width: 100%;
 		height: 100%;
 		overflow: hidden;

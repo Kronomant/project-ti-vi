@@ -3,10 +3,11 @@ import React from 'react'
 import { Flex, Icon, Image, Text, Button } from '@chakra-ui/react'
 import { AiOutlineSend } from 'react-icons/ai'
 
-const ReferencesCard: React.FC<{ link: string; title: string }> = ({
-	link,
-	title
-}) => (
+const ReferencesCard: React.FC<{
+	link: string
+	title: string
+	description: string
+}> = ({ link, title, description }) => (
 	<Flex margin="24px 64px" w="100%" gap={16} height="400px">
 		<Image
 			borderRadius="8px"
@@ -19,9 +20,7 @@ const ReferencesCard: React.FC<{ link: string; title: string }> = ({
 				{title}
 			</Text>
 			<Text fontSize="md" padding={'24px 0px'} textAlign="left" color="#828282">
-				Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquid, nulla
-				iste sequi ipsam culpa odio delectus itaque animi doloremque eum ex
-				recusandae nostrum exercitationem facere minus ab ad quia sit.
+				{description}
 			</Text>
 
 			<Button

@@ -2,17 +2,20 @@ import { Flex, Image, Text } from '@chakra-ui/react'
 import React from 'react'
 
 const Footer = () => (
-	<Flex height="300px" bgColor="#0C1E39" padding="48px 24px">
-		<Flex w="30%">
-			<Image w="70%" h="70%" objectFit="contain" src="/images/logo.png" />
-		</Flex>
+	<Flex
+		flexDir="column"
+		height="250px"
+		justifyContent="center"
+		alignItems="center"
+		bgColor="#0C1E39"
+		padding="48px 24px"
+	>
+		<Image w="70%" h="70%" objectFit="contain" src="/images/logo.png" />
 
-		<Flex w={'30%'}>
-			<Text fontSize="lg" color="white">
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis nostrum
-				hic velit beatae reiciendis ipsam labore unde et natus explicabo nisi,
-				reprehenderit possimus itaque officiis earum eaque dolorum
-				necessitatibus. Laudantium.
+		<Flex>
+			<Text fontSize="md" color="white">
+				Aplicação desenvolvida pelos alunos: Isabela Aguilar, Lucas Milard e
+				Rossana Oliveira para a disciplina de Trabalho Interdisciplinar VI
 			</Text>
 		</Flex>
 	</Flex>

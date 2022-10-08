@@ -1,11 +1,12 @@
 import FormData from 'form-data'
 
-export type TPerson = {
-	id: number
-	name: string
-	endereco: string
+export type TClassification = {
+	label: string
+	description: string
+	percent: number
 }
 export interface IImageContext {
+	classifications: TClassification[]
 	handleGetAllData: () => Promise<void>
 	handleInsertData: (data: FormData) => Promise<void>
 }

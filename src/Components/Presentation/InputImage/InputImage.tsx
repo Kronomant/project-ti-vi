@@ -5,7 +5,6 @@ import { ImageContainer, ImageCover } from './InputImage.style'
 import { AiOutlineSend } from 'react-icons/ai'
 import FormData from 'form-data'
 import { useImageProcessing } from 'contexts/Image'
-import { insertData } from 'services/python.api'
 
 interface IInputImageProps {
 	preview: string
@@ -48,11 +47,6 @@ const InputImage: React.FC<IInputImageProps> = ({
 			refImage?.current?.click()
 		}
 	}
-
-	const sleep = (ms: number): Promise<void> =>
-		new Promise(resolve => {
-			setTimeout(resolve, ms)
-		})
 
 	const handleClickIcon = () => {
 		if (!loadingImage) {

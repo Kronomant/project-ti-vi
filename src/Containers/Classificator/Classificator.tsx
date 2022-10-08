@@ -8,18 +8,19 @@ import {
 	Text,
 	HStack,
 	Button,
-	Icon,
-	Grid
+	Icon
 } from '@chakra-ui/react'
 import { ChevronRightIcon } from '@chakra-ui/icons'
 
 import { MdRefresh } from 'react-icons/md'
 import Container from 'Components/Core/Container'
 import InputImage from 'Components/Presentation/InputImage'
+import { useImageProcessing } from 'contexts/Image'
 
 const Classificator = () => {
 	const [preview, setPreview] = useState<string>()
 	const [result, setResult] = useState<boolean>(false)
+	const { classifications } = useImageProcessing()
 	return (
 		<Container>
 			<Image h="250px" src="/images/nebula.png" objectFit="cover" />
@@ -76,7 +77,7 @@ const Classificator = () => {
 										fontWeight="semibold"
 										color="pink.500"
 									>
-										Galáxia (60%)
+										{classifications[0]?.label} {classifications[0]?.percent}%
 									</Text>
 								</Text>
 								<Text
@@ -85,11 +86,10 @@ const Classificator = () => {
 									w="70%"
 									color="gray.500"
 								>
-									Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet
-									nemo vitae neque accusantium! Exercitationem, voluptatem
-									cupiditate beatae odio repellat, nostrum ut quae perspiciatis,
-									aliquid ratione voluptate animi blanditiis eveniet
-									necessitatibus!
+									Acabamos de analisar a imagem que você nos enviou. De acordo
+									com a análise realizada essa imagem se assemelha{' '}
+									{classifications[0]?.percent}% com uma{' '}
+									{classifications[0]?.label}
 								</Text>
 							</Flex>
 						</Flex>
