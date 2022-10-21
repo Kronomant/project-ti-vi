@@ -7,8 +7,8 @@ import FormData from 'form-data'
 import { useImageProcessing } from 'contexts/Image'
 
 interface IInputImageProps {
-	preview: string
-	setPreview: React.Dispatch<React.SetStateAction<string>>
+	preview: string[]
+	setPreview: React.Dispatch<React.SetStateAction<string[]>>
 	setNextStep: React.Dispatch<React.SetStateAction<boolean>>
 }
 
@@ -24,21 +24,18 @@ const InputImage: React.FC<IInputImageProps> = ({
 	const { handleInsertData } = useImageProcessing()
 
 	const handleInputImage = async (file: FileList) => {
-		setLoadingImage(true)
-		// await sleep(1000)
-		Array.from(file).map(item => form.append('imgFile', item))
-		const objectUrl = URL.createObjectURL(file[0])
+		const listImages = Array.from(file)
+		listImages.map(item => form.append('imgFile', item))
+		const objectUrl = listImages.map(item => URL.createObjectURL(item))
 		setPreview(objectUrl)
 		console.log(form)
-
-		// api para enviar imagem
-		setLoadingImage(false)
 	}
 
 	const handleInsertImage = useCallback(async () => {
+		setLoadingImage(true)
 		await handleInsertData(form)
 		form.append('files', null)
-		console.log(form)
+		setLoadingImage(false)
 		setNextStep(true)
 	}, [])
 
@@ -98,7 +95,7 @@ const InputImage: React.FC<IInputImageProps> = ({
 									}
 								}}
 							/>
-							<Image src={preview} />
+							<Image src={preview?.[0]} />
 						</ImageContainer>
 					</ImageCover>
 					{preview && (

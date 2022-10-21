@@ -18,7 +18,7 @@ import InputImage from 'Components/Presentation/InputImage'
 import { useImageProcessing } from 'contexts/Image'
 
 const Classificator = () => {
-	const [preview, setPreview] = useState<string>()
+	const [preview, setPreview] = useState<string[]>()
 	const [result, setResult] = useState<boolean>(false)
 	const { classifications } = useImageProcessing()
 	return (
@@ -59,40 +59,43 @@ const Classificator = () => {
 				</Text>
 				{result ? (
 					<>
-						<Flex margin={'24px 0'} w="100%" gap={24}>
-							<Image w="500px" src={preview} />
-							<Flex flexDir="column" gap={4}>
-								<Text
-									display="flex"
-									gap={2}
-									fontSize="2xl"
-									fontFamily="Poppins"
-									fontWeight="semibold"
-									color="#0C1E39"
-								>
-									Classificação:
+						{preview.map(item => (
+							<Flex key={item} margin={'24px 0'} w="100%" gap={24}>
+								<Image w="500px" src={item} />
+								<Flex flexDir="column" gap={4}>
 									<Text
+										display="flex"
+										gap={2}
 										fontSize="2xl"
 										fontFamily="Poppins"
 										fontWeight="semibold"
-										color="pink.500"
+										color="#0C1E39"
 									>
-										{classifications[0]?.label} {classifications[0]?.percent}%
+										Classificação:
+										<Text
+											fontSize="2xl"
+											fontFamily="Poppins"
+											fontWeight="semibold"
+											color="pink.500"
+										>
+											{classifications[0]?.label} {classifications[0]?.percent}%
+										</Text>
 									</Text>
-								</Text>
-								<Text
-									fontFamily="Poppins"
-									fontSize="md"
-									w="70%"
-									color="gray.500"
-								>
-									Acabamos de analisar a imagem que você nos enviou. De acordo
-									com a análise realizada essa imagem se assemelha{' '}
-									{classifications[0]?.percent}% com uma{' '}
-									{classifications[0]?.label}
-								</Text>
+									<Text
+										fontFamily="Poppins"
+										fontSize="md"
+										w="70%"
+										color="gray.500"
+									>
+										Acabamos de analisar a imagem que você nos enviou. De acordo
+										com a análise realizada essa imagem se assemelha{' '}
+										{classifications[0]?.percent}% com uma{' '}
+										{classifications[0]?.label}
+									</Text>
+								</Flex>
 							</Flex>
-						</Flex>
+						))}
+
 						<HStack>
 							<Button
 								_hover={{ background: '#194077', color: 'pink.300' }}
