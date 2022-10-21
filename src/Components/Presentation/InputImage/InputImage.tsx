@@ -23,11 +23,11 @@ const InputImage: React.FC<IInputImageProps> = ({
 	const teste = true
 	const { handleInsertData } = useImageProcessing()
 
-	const handleInputImage = async (file: File) => {
+	const handleInputImage = async (file: FileList) => {
 		setLoadingImage(true)
 		// await sleep(1000)
-		form.append('imgFile', file)
-		const objectUrl = URL.createObjectURL(file)
+		Array.from(file).map(item => form.append('imgFile', item))
+		const objectUrl = URL.createObjectURL(file[0])
 		setPreview(objectUrl)
 		console.log(form)
 
@@ -87,13 +87,14 @@ const InputImage: React.FC<IInputImageProps> = ({
 							<Icon as={IoMdImage} height={5} width={5} color="pink.500" />
 							<input
 								type="file"
+								multiple
 								formEncType="multipart/form-data"
 								hidden
 								ref={refImage}
 								accept="image/jpg, image/jpeg, image/png"
 								onChange={({ target }) => {
-									if (target?.files?.[0]) {
-										handleInputImage(target.files?.[0])
+									if (target?.files) {
+										handleInputImage(target.files)
 									}
 								}}
 							/>
