@@ -107,7 +107,7 @@ const InputImage: React.FC<IInputImageProps> = ({
 							color="pink.400"
 							onClick={() => handleInsertImage()}
 						>
-							Enviar
+							Enviar test
 						</Button>
 					)}
 				</Flex>
