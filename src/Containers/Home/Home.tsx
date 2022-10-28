@@ -5,16 +5,16 @@ import { BiMouse } from 'react-icons/bi'
 import { Flex, Text, Image, Button, Icon, HStack, Link } from '@chakra-ui/react'
 import Container from 'Components/Core/Container'
 import DevCard from 'Components/Presentation/Home/DevCard'
-import { Swiper, SwiperSlide } from 'swiper/react'
+/* import { Swiper, SwiperSlide } from 'swiper/react' */
 
 // Import Swiper styles
-import 'swiper/css'
+/* import 'swiper/css'
 import 'swiper/css/navigation'
-import 'swiper/css/pagination'
+import 'swiper/css/pagination' */
 
-import { Navigation, Pagination } from 'swiper'
+/* import { Navigation, Pagination } from 'swiper'
 import ReferencesCard from 'Components/Presentation/Home/ReferencesCard'
-import { referencesData } from 'contexts/Image/Image.data'
+import { referencesData } from 'contexts/Image/Image.data' */
 
 const Home: React.FC = () => {
 	const router = useRouter()
@@ -279,7 +279,7 @@ const Home: React.FC = () => {
 			>
 				Referências
 			</Text>
-			<Swiper
+			{/* <Swiper
 				navigation
 				modules={[Navigation, Pagination]}
 				className="mySwiper"
@@ -293,7 +293,7 @@ const Home: React.FC = () => {
 						/>
 					</SwiperSlide>
 				))}
-			</Swiper>
+			</Swiper> */}
 		</Flex>
 	)
 

@@ -1,12 +1,13 @@
 import React from 'react'
 import type { AppProps } from 'next/app'
-import { ToastContainer } from 'react-toastify'
-import { ImageProvider } from 'contexts/Image'
 import { ChakraProvider } from '@chakra-ui/react'
-import theme from 'styles'
+
 import Head from 'next/head'
 
 import 'react-toastify/dist/ReactToastify.css'
+import theme from '../../styles'
+import { ImageProvider } from 'contexts/Image'
+import { ToastContainer } from 'react-toastify'
 
 function MyApp({ Component, pageProps }: AppProps) {
 	return (
@@ -18,7 +19,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 			</Head>
 
 			<ChakraProvider theme={theme}>
-				<ToastContainer
+      <ToastContainer
 					theme="dark"
 					position="bottom-right"
 					autoClose={3000}
@@ -27,9 +28,9 @@ function MyApp({ Component, pageProps }: AppProps) {
 					pauseOnHover
 					pauseOnFocusLoss
 				/>
-				<ImageProvider>
+        <ImageProvider>
 					<Component {...pageProps} />
-				</ImageProvider>
+        </ImageProvider>
 			</ChakraProvider>
 		</>
 	)

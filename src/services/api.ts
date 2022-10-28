@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 export const API = axios.create({
-	baseURL: 'https://api-estrelas-galaxias.herokuapp.com/',
+	baseURL: 'https://class-estrelas-galaxias.herokuapp.com/',
 	headers: {
 		AccessControlAllowOrigin: true
 	}

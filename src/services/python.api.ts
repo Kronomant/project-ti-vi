@@ -12,7 +12,7 @@ export const insertData = async (
 		.then(({ data, status }) => {
 			console.log(data)
 			toast.success('Classificação feita com sucesso!!!')
-			return { status, response: data }
+			return { status, response: [data] }
 		})
 		.catch(err => {
 			return { status: err.status, response: [] }

@@ -21,6 +21,8 @@ const Classificator = () => {
 	const [preview, setPreview] = useState<string[]>()
 	const [result, setResult] = useState<boolean>(false)
 	const { classifications } = useImageProcessing()
+
+	console.log(classifications)
 	return (
 		<Container>
 			<Image h="250px" src="/images/nebula.png" objectFit="cover" />
