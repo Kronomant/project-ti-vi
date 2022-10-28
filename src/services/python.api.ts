@@ -8,7 +8,7 @@ export const insertData = async (
 	status: number
 	response: TClassification[]
 }> => {
-	const resp = await API.post('upload-image', data)
+	const resp = await API.post('/', data)
 		.then(({ data, status }) => {
 			console.log(data)
 			toast.success('Classificação feita com sucesso!!!')

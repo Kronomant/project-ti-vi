@@ -25,7 +25,7 @@ const InputImage: React.FC<IInputImageProps> = ({
 
 	const handleInputImage = async (file: FileList) => {
 		const listImages = Array.from(file)
-		listImages.map(item => form.append('imgFile', item))
+		listImages.map(item => form.append('image', item))
 		const objectUrl = listImages.map(item => URL.createObjectURL(item))
 		setPreview(objectUrl)
 		console.log(form)
