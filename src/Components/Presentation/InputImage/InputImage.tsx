@@ -1,6 +1,6 @@
 import React, { useState, useRef, useCallback } from 'react'
 import { IoMdImage } from 'react-icons/io'
-import { Button, Flex, Icon, Image, Spinner } from '@chakra-ui/react'
+import { Button, Flex, Icon, Image, Spinner, Text } from '@chakra-ui/react'
 import { ImageContainer, ImageCover } from './InputImage.style'
 import { AiOutlineSend } from 'react-icons/ai'
 import FormData from 'form-data'
@@ -75,8 +75,7 @@ const InputImage: React.FC<IInputImageProps> = ({
 	)
 
 	return (
-		<>
-			{teste ? (
+		
 				<Flex flexDir="column" alignItems="end">
 					<ImageCover>
 						<ImageContainer onClick={handleClickIcon}>
@@ -95,9 +94,13 @@ const InputImage: React.FC<IInputImageProps> = ({
 									}
 								}}
 							/>
-							<Image src={preview?.[0]} />
+							<Image alt='' src={preview?.[0]} />
 						</ImageContainer>
 					</ImageCover>
+					 { preview?.length > 0 && (
+					 <Text mb={4} >
+						{preview?.length} arquivos
+					 </Text> )}
 					{preview && (
 						<Button
 							_hover={{ background: '#194077', color: 'pink.300' }}
@@ -107,21 +110,10 @@ const InputImage: React.FC<IInputImageProps> = ({
 							color="pink.400"
 							onClick={() => handleInsertImage()}
 						>
-							Enviar test
+							Enviar
 						</Button>
 					)}
 				</Flex>
-			) : (
-				<form
-					method="POST"
-					action="/api/pessoa/upload-image"
-					encType="multipart/form-data"
-				>
-					<input type="file" name="imgFile" />
-					<input type="submit" value="upload" />
-				</form>
-			)}
-		</>
 	)
 }
 

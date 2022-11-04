@@ -19,10 +19,8 @@ import { useImageProcessing } from 'contexts/Image'
 
 const Classificator = () => {
 	const [preview, setPreview] = useState<string[]>()
-	const [result, setResult] = useState<boolean>(false)
+	const [nextStep, setNextStep] = useState<boolean>(false)
 	const { classifications } = useImageProcessing()
-
-	console.log(classifications)
 	return (
 		<Container>
 			<Image h="250px" src="/images/nebula.png" objectFit="cover" />
@@ -59,11 +57,11 @@ const Classificator = () => {
 				>
 					Classificador
 				</Text>
-				{result ? (
+				{nextStep ? (
 					<>
-						{preview.map(item => (
+						{preview.map((item, index) => (
 							<Flex key={item} margin={'24px 0'} w="100%" gap={24}>
-								<Image w="500px" src={item} />
+								<Image alt='classification' w="500px" src={item} />
 								<Flex flexDir="column" gap={4}>
 									<Text
 										display="flex"
@@ -80,7 +78,7 @@ const Classificator = () => {
 											fontWeight="semibold"
 											color="pink.500"
 										>
-											{classifications[0]?.label} {classifications[0]?.percent}%
+											{classifications[index]?.label} {classifications[index]?.percent}%
 										</Text>
 									</Text>
 									<Text
@@ -91,8 +89,8 @@ const Classificator = () => {
 									>
 										Acabamos de analisar a imagem que você nos enviou. De acordo
 										com a análise realizada essa imagem se assemelha{' '}
-										{classifications[0]?.percent}% com uma{' '}
-										{classifications[0]?.label}
+										{classifications[index]?.percent}% com uma{' '}
+										{classifications[index]?.label}
 									</Text>
 								</Flex>
 							</Flex>
@@ -113,7 +111,7 @@ const Classificator = () => {
 								bgColor="#0C1E39"
 								color="pink.400"
 								onClick={() => {
-									setResult(false)
+									setNextStep(false)
 									setPreview(null)
 								}}
 							>
@@ -125,7 +123,7 @@ const Classificator = () => {
 					<InputImage
 						preview={preview}
 						setPreview={setPreview}
-						setNextStep={setResult}
+						setNextStep={setNextStep}
 					/>
 				)}
 			</Flex>

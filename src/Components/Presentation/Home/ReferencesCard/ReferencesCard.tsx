@@ -10,6 +10,7 @@ const ReferencesCard: React.FC<{
 }> = ({ link, title, description }) => (
 	<Flex margin="24px 64px" w="100%" gap={16} height="400px">
 		<Image
+			alt=''
 			borderRadius="8px"
 			boxShadow=" rgba(100, 100, 111, 0.1) 0px 7px 29px 0px"
 			w="25%"

@@ -5,16 +5,17 @@ import { BiMouse } from 'react-icons/bi'
 import { Flex, Text, Image, Button, Icon, HStack, Link } from '@chakra-ui/react'
 import Container from 'Components/Core/Container'
 import DevCard from 'Components/Presentation/Home/DevCard'
-/* import { Swiper, SwiperSlide } from 'swiper/react' */
+
+ import { Swiper, SwiperSlide } from 'swiper/react' 
 
 // Import Swiper styles
-/* import 'swiper/css'
+ import 'swiper/css'
 import 'swiper/css/navigation'
-import 'swiper/css/pagination' */
+import 'swiper/css/pagination' 
 
-/* import { Navigation, Pagination } from 'swiper'
+ import { Navigation, Pagination } from 'swiper'
 import ReferencesCard from 'Components/Presentation/Home/ReferencesCard'
-import { referencesData } from 'contexts/Image/Image.data' */
+import { referencesData } from 'contexts/Image/Image.data' 
 
 const Home: React.FC = () => {
 	const router = useRouter()
@@ -101,7 +102,7 @@ const Home: React.FC = () => {
 				</Flex>
 			</Flex>
 			<Flex justifyContent="center" w="50%" alignItems="baseline">
-				<Image w="90%" src="/images/coverHome2.svg" />
+				<Image alt="cover" w="90%" src="/images/coverHome2.svg" />
 			</Flex>
 		</Flex>
 	)
@@ -191,6 +192,7 @@ const Home: React.FC = () => {
 					<HStack spacing={8}>
 						{[...Array(4)].map((e, i) => (
 							<Image
+								alt={e}
 								h="128px"
 								w="128x"
 								key={`galaxy${i}`}
@@ -204,6 +206,7 @@ const Home: React.FC = () => {
 					<HStack spacing={8}>
 						{[...Array(4)].map((e, i) => (
 							<Image
+								alt={e}
 								h="128px"
 								w="128x"
 								key={`star${i}`}
@@ -279,7 +282,7 @@ const Home: React.FC = () => {
 			>
 				Referências
 			</Text>
-			{/* <Swiper
+			 <Swiper
 				navigation
 				modules={[Navigation, Pagination]}
 				className="mySwiper"
@@ -293,7 +296,7 @@ const Home: React.FC = () => {
 						/>
 					</SwiperSlide>
 				))}
-			</Swiper> */}
+			</Swiper> 
 		</Flex>
 	)
 
@@ -311,7 +314,6 @@ const Home: React.FC = () => {
 				gap={24}
 			>
 				<Banner />
-
 				<Devs />
 				<DataSet />
 				<References />
