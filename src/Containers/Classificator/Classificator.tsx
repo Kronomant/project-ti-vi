@@ -21,6 +21,40 @@ const Classificator = () => {
 	const [preview, setPreview] = useState<string[]>()
 	const [nextStep, setNextStep] = useState<boolean>(false)
 	const { classifications } = useImageProcessing()
+
+
+
+	const Header = () => (
+		<>
+			<Flex w="100%" justifyContent="center">
+				<Breadcrumb
+					fontSize="lg"
+					spacing="8px"
+					separator={<ChevronRightIcon color="pink.500" />}
+				>
+					<BreadcrumbItem>
+						<BreadcrumbLink href="/">Página Inicial</BreadcrumbLink>
+					</BreadcrumbItem>
+					<BreadcrumbItem>
+						<BreadcrumbLink href="#">Start</BreadcrumbLink>
+					</BreadcrumbItem>
+				</Breadcrumb>
+			</Flex>
+			<Text
+				m="20px 0"
+				fontSize="5xl"
+				fontWeight="semibold"
+
+				color="#0C1E39"
+			>
+				Classificador
+			</Text>
+		</>
+
+	)
+
+
+
 	return (
 		<Container>
 			<Image h="250px" src="/images/nebula.png" objectFit="cover" />
@@ -33,30 +67,8 @@ const Classificator = () => {
 				justifyContent="center"
 				alignItems="center"
 			>
-				<Flex w="100%" justifyContent="center">
-					<Breadcrumb
-						fontSize="lg"
-						spacing="8px"
-						separator={<ChevronRightIcon color="pink.500" />}
-					>
-						<BreadcrumbItem>
-							<BreadcrumbLink href="/">Página Inicial</BreadcrumbLink>
-						</BreadcrumbItem>
+				<Header />
 
-						<BreadcrumbItem>
-							<BreadcrumbLink href="#">Start</BreadcrumbLink>
-						</BreadcrumbItem>
-					</Breadcrumb>
-				</Flex>
-				<Text
-					m="20px 0"
-					fontSize="5xl"
-					fontWeight="semibold"
-					fontFamily="Poppins"
-					color="#0C1E39"
-				>
-					Classificador
-				</Text>
 				{nextStep ? (
 					<>
 						{preview.map((item, index) => (
@@ -67,14 +79,14 @@ const Classificator = () => {
 										display="flex"
 										gap={2}
 										fontSize="2xl"
-										fontFamily="Poppins"
+
 										fontWeight="semibold"
 										color="#0C1E39"
 									>
 										Classificação:
 										<Text
 											fontSize="2xl"
-											fontFamily="Poppins"
+
 											fontWeight="semibold"
 											color="pink.500"
 										>
@@ -82,7 +94,7 @@ const Classificator = () => {
 										</Text>
 									</Text>
 									<Text
-										fontFamily="Poppins"
+
 										fontSize="md"
 										w="70%"
 										color="gray.500"
@@ -96,28 +108,28 @@ const Classificator = () => {
 							</Flex>
 						))}
 
-						<HStack>
-							<Button
-								_hover={{ background: '#194077', color: 'pink.300' }}
-								w="250px"
-								rightIcon={
-									<Icon
-										as={MdRefresh}
-										height="24px"
-										w="24px"
-										color="pink.400"
-									/>
-								}
-								bgColor="#0C1E39"
-								color="pink.400"
-								onClick={() => {
-									setNextStep(false)
-									setPreview(null)
-								}}
-							>
-								Classificar outra imagem
-							</Button>
-						</HStack>
+
+						<Button
+							_hover={{ background: '#194077', color: 'pink.300' }}
+							w="250px"
+							rightIcon={
+								<Icon
+									as={MdRefresh}
+									height="24px"
+									w="24px"
+									color="pink.400"
+								/>
+							}
+							bgColor="#0C1E39"
+							color="pink.400"
+							onClick={() => {
+								setNextStep(false)
+								setPreview(null)
+							}}
+						>
+							Classificar outras imagens
+						</Button>
+
 					</>
 				) : (
 					<InputImage

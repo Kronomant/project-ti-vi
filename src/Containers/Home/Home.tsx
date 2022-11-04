@@ -6,16 +6,16 @@ import { Flex, Text, Image, Button, Icon, HStack, Link } from '@chakra-ui/react'
 import Container from 'Components/Core/Container'
 import DevCard from 'Components/Presentation/Home/DevCard'
 
- import { Swiper, SwiperSlide } from 'swiper/react' 
+import { Swiper, SwiperSlide } from 'swiper/react'
 
 // Import Swiper styles
- import 'swiper/css'
+import 'swiper/css'
 import 'swiper/css/navigation'
-import 'swiper/css/pagination' 
+import 'swiper/css/pagination'
 
- import { Navigation, Pagination } from 'swiper'
+import { Navigation, Pagination } from 'swiper'
 import ReferencesCard from 'Components/Presentation/Home/ReferencesCard'
-import { referencesData } from 'contexts/Image/Image.data' 
+import { referencesData } from 'contexts/Image/Image.data'
 
 const Home: React.FC = () => {
 	const router = useRouter()
@@ -25,18 +25,16 @@ const Home: React.FC = () => {
 			<Flex flexDir="column" w="50%" gap={4}>
 				<Flex flexDir="column" gap={4}>
 					<Text
-						fontFamily="Poppins"
 						fontSize="6xl"
 						fontWeight="semibold"
 						color="#0C1E39"
-						// textShadow="3px 4px var(--chakra-colors-pink-400)"
+					// textShadow="3px 4px var(--chakra-colors-pink-400)"
 					>
 						Classificando <br />
 						Estrelas e Galáxias
 					</Text>
 					<Text
 						color="pink.400"
-						fontFamily="Poppins"
 						fontSize="2xl"
 						fontWeight="semibold"
 					>
@@ -45,7 +43,7 @@ const Home: React.FC = () => {
 				</Flex>
 
 				<Text
-					fontFamily="Poppins"
+
 					fontSize="lg"
 					color="gray.500"
 					fontWeight="light"
@@ -89,7 +87,7 @@ const Home: React.FC = () => {
 						w="32px"
 						color="pink.400"
 					/>
-					<Text fontFamily="Poppins" color="#0C1E39" fontSize="xl">
+					<Text color="#0C1E39" fontSize="xl">
 						Ver mais
 					</Text>
 					<Icon
@@ -118,18 +116,18 @@ const Home: React.FC = () => {
 		>
 			<Flex margin={'60px 0'} flexDir="column" alignItems="center">
 				<Text
-					fontFamily="Poppins"
+
 					fontSize="4xl"
 					fontWeight="semibold"
 					color="#0C1E39"
 					mb={4}
-					// textShadow="3px 4px var(--chakra-colors-pink-300)"
+				// textShadow="3px 4px var(--chakra-colors-pink-300)"
 				>
 					Devs
 				</Text>
 				<Text
 					color="pink.400"
-					fontFamily="Poppins"
+
 					fontSize="lg"
 					fontWeight="hairline"
 				>
@@ -167,18 +165,18 @@ const Home: React.FC = () => {
 			alignItems="center"
 		>
 			<Text
-				fontFamily="Poppins"
+
 				fontSize="4xl"
 				fontWeight="semibold"
 				color="#0C1E39"
 				mb={4}
-				// textShadow="3px 4px var(--chakra-colors-pink-300)"
+			// textShadow="3px 4px var(--chakra-colors-pink-300)"
 			>
 				Data Set
 			</Text>
 			<Text
 				color="pink.400"
-				fontFamily="Poppins"
+
 				fontSize="xl"
 				fontWeight="hairline"
 			>
@@ -186,7 +184,7 @@ const Home: React.FC = () => {
 			</Text>
 			<Flex margin={'40px 0'} alignItems="center">
 				<Flex gap={4} flexDir="column" w="50%">
-					<Text color="pink.400" fontFamily="Poppins" fontSize="2xl">
+					<Text color="pink.400" fontSize="2xl">
 						Galaxias
 					</Text>
 					<HStack spacing={8}>
@@ -200,7 +198,7 @@ const Home: React.FC = () => {
 							/>
 						))}
 					</HStack>
-					<Text color="pink.400" fontFamily="Poppins" fontSize="2xl">
+					<Text color="pink.400" fontSize="2xl">
 						Estrelas
 					</Text>
 					<HStack spacing={8}>
@@ -216,20 +214,20 @@ const Home: React.FC = () => {
 					</HStack>
 				</Flex>
 				<Flex flexDir="column" w="40%">
-					<Text fontFamily="Poppins" fontSize="lg" color="gray.500">
+					<Text fontSize="lg" color="gray.500">
 						Iremos utilizar duas bases de dados para a execução desse trabalho.
 						Ambas as bases possuem imagens com tonalidades de cinza e estão
 						classificadas em pastas, uma pasta com imagens de galáxias e outra
 						com imagens de estrelas
 					</Text>
-					<Text mt={4} fontFamily="Poppins" fontSize="lg" color="gray.500">
+					<Text mt={4} fontSize="lg" color="gray.500">
 						Essas bases de dados podem ser acessadas por meio dos links abaixo:
 					</Text>
 					<Link
 						_hover={{ color: 'var(--chakra-colors-pink-400)' }}
 						mt={4}
 						href="https://www.kaggle.com/datasets/brsdincer/mapping-dark-matter-image-set"
-						fontFamily="Poppins"
+
 						textDecor="underline"
 						target="_blank"
 						fontSize="lg"
@@ -241,7 +239,7 @@ const Home: React.FC = () => {
 						_hover={{ color: 'var(--chakra-colors-pink-400)' }}
 						mt={4}
 						href="https://www.kaggle.com/datasets/divyansh22/dummy-astronomy-data"
-						fontFamily="Poppins"
+
 						target="_blank"
 						textDecor="underline"
 						fontSize="lg"
@@ -264,25 +262,25 @@ const Home: React.FC = () => {
 			mb={24}
 		>
 			<Text
-				fontFamily="Poppins"
+
 				fontSize="4xl"
 				fontWeight="semibold"
 				color="#0C1E39"
 				mb={4}
-				// textShadow="3px 4px var(--chakra-colors-pink-300)"
+			// textShadow="3px 4px var(--chakra-colors-pink-300)"
 			>
 				Trabalhos relacionados
 			</Text>
 			<Text
 				color="pink.400"
-				fontFamily="Poppins"
+
 				fontSize="xl"
 				fontWeight="hairline"
 				mb={16}
 			>
 				Referências
 			</Text>
-			 <Swiper
+			<Swiper
 				navigation
 				modules={[Navigation, Pagination]}
 				className="mySwiper"
@@ -296,7 +294,7 @@ const Home: React.FC = () => {
 						/>
 					</SwiperSlide>
 				))}
-			</Swiper> 
+			</Swiper>
 		</Flex>
 	)
 

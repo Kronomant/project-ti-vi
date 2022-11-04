@@ -22,7 +22,6 @@ const DevCard: React.FC<IDevCardProps> = ({ image, name, git, linkedin }) => (
 	>
 		<Image borderRadius="200px" src={image} />
 		<Text
-			fontFamily="Poppins"
 			fontSize="2xl"
 			fontWeight="semibold"
 			color="#0C1E39"

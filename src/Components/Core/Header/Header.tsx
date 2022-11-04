@@ -36,7 +36,7 @@ const Header = () => {
 				gap="12px"
 			>
 				<Image w="24px" height="24px" src="/favorite.png" />
-				<Text fontSize="2xl" fontFamily="Poppins" fontWeight="semibold">
+				<Text fontSize="2xl" fontWeight="semibold">
 					TI VI
 				</Text>
 			</Flex>
@@ -44,7 +44,7 @@ const Header = () => {
 			<HStack spacing={20} justifyContent="space-between">
 				<Text
 					_hover={{ color: 'var(--chakra-colors-pink-400)' }}
-					fontFamily="Poppins"
+
 					cursor="pointer"
 					onClick={() => handleScroll('Home')}
 				>
@@ -52,7 +52,7 @@ const Header = () => {
 				</Text>
 				<Text
 					_hover={{ color: 'var(--chakra-colors-pink-400)' }}
-					fontFamily="Poppins"
+
 					cursor="pointer"
 					onClick={() => handleScroll('Devs')}
 				>
@@ -60,7 +60,7 @@ const Header = () => {
 				</Text>
 				<Text
 					_hover={{ color: 'var(--chakra-colors-pink-400)' }}
-					fontFamily="Poppins"
+
 					cursor="pointer"
 					onClick={() => handleScroll('Dataset')}
 				>
@@ -68,7 +68,7 @@ const Header = () => {
 				</Text>
 				<Text
 					_hover={{ color: 'var(--chakra-colors-pink-400)' }}
-					fontFamily="Poppins"
+
 					cursor="pointer"
 					onClick={() => handleScroll('References')}
 				>
