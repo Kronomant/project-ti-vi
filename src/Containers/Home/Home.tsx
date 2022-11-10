@@ -28,7 +28,6 @@ const Home: React.FC = () => {
 						fontSize="6xl"
 						fontWeight="semibold"
 						color="#0C1E39"
-					// textShadow="3px 4px var(--chakra-colors-pink-400)"
 					>
 						Classificando <br />
 						Estrelas e Galáxias
@@ -121,7 +120,6 @@ const Home: React.FC = () => {
 					fontWeight="semibold"
 					color="#0C1E39"
 					mb={4}
-				// textShadow="3px 4px var(--chakra-colors-pink-300)"
 				>
 					Devs
 				</Text>
@@ -170,7 +168,6 @@ const Home: React.FC = () => {
 				fontWeight="semibold"
 				color="#0C1E39"
 				mb={4}
-			// textShadow="3px 4px var(--chakra-colors-pink-300)"
 			>
 				Data Set
 			</Text>
@@ -227,7 +224,6 @@ const Home: React.FC = () => {
 						_hover={{ color: 'var(--chakra-colors-pink-400)' }}
 						mt={4}
 						href="https://www.kaggle.com/datasets/brsdincer/mapping-dark-matter-image-set"
-
 						textDecor="underline"
 						target="_blank"
 						fontSize="lg"
@@ -239,7 +235,6 @@ const Home: React.FC = () => {
 						_hover={{ color: 'var(--chakra-colors-pink-400)' }}
 						mt={4}
 						href="https://www.kaggle.com/datasets/divyansh22/dummy-astronomy-data"
-
 						target="_blank"
 						textDecor="underline"
 						fontSize="lg"
@@ -267,7 +262,6 @@ const Home: React.FC = () => {
 				fontWeight="semibold"
 				color="#0C1E39"
 				mb={4}
-			// textShadow="3px 4px var(--chakra-colors-pink-300)"
 			>
 				Trabalhos relacionados
 			</Text>
