@@ -208,7 +208,7 @@ const Home: React.FC = () => {
 								h="128px"
 								w="128x"
 								key={`star${i}`}
-								src={`/images/star/star${i}.jpg`}
+								src={`/images/Star/star${i}.jpg`}
 							/>
 						))}
 					</HStack>
